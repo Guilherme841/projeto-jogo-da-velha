@@ -3,16 +3,16 @@ const xis = document.getElementById("xispng");
 const bola = document.getElementById("bolapng");
 // let execução = false;
 
-xis.addEventListener("click", function() {
-    
+xis.addEventListener("click", function () {
+
 })
 
-bola.addEventListener("click", function() {
-    
+bola.addEventListener("click", function () {
+
 })
 
 for (let bloco of blocos) {
-  bloco.addEventListener("click", async function() {
+  bloco.addEventListener("click", async function () {
     // if (execução) {
     //     return;
     //   }
