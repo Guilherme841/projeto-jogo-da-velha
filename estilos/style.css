@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html,
+main {
+    height: 94vh;
+    background-color: lightslategray;
+}
+
+main {
+    display: flex;
+}
+
+#placar {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 40px;
+    text-align: center;
+    /* background-color: lightyellow; */
+}
+
+.pontos {
+      font-size: 2em;
+      border-top: 1px solid black;  
+}
+
+#containerXis {
+    /* background-color: lightgreen; */
+    margin-right: 35px;
+}
+
+#containerBola {
+    /* background-color: lightgreen; */
+    margin-left: 35px;
+}
+
+#bolinha {
+   padding: 6.5px;
+   
+}
+
+#container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#xispng {
+    cursor: pointer;
+}
+
+#bolapng {
+    cursor: pointer;
+}
+
+.blocos {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.589);
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
