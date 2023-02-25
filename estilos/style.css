@@ -27,8 +27,8 @@ main {
 }
 
 .pontos {
-      font-size: 2em;
-      border-top: 1px solid black;  
+    font-size: 2em;
+    border-top: 1px solid black;
 }
 
 #containerXis {
@@ -42,8 +42,8 @@ main {
 }
 
 #bolinha {
-   padding: 6.5px;
-   
+    padding: 6.5px;
+
 }
 
 #container {
