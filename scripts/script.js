@@ -60,10 +60,10 @@ for (var bloco of blocos) {
       ["div7", "div8", "div9"],
     ];
     for (let i = 0; i < matriz.length; i++) {
-      const divs = matriz[i];
-      var resultado = true;
-      for (let i2 = 0; i2 < divs.length; i2++) {
-        const divsId = document.getElementById(divs[i2]);
+      let divs = matriz[i];
+      let resultado = true;
+      for (let i = 0; i < divs.length; i++) {
+        let divsId = document.getElementById(divs[i]);
         if (!divsId.classList.contains("jogado")) {
           resultado = false;
           break;
@@ -113,15 +113,17 @@ function site() {
   if (jogadas2.length > 3) {
     return;
   }
-  let arrQuadros = Array.from(blocos);
-  let quadroAleatorio =
-    arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
-  while (
-    quadroAleatorio.classList.contains("jogado") ||
-    quadroAleatorio.classList.contains("jogado2")
-  ) {
-    quadroAleatorio = arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
-  }
+  // let arrQuadros = Array.from(blocos);
+  // let quadroAleatorio =
+  //   arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
+  // while (
+  //   quadroAleatorio.classList.contains("jogado") ||
+  //   quadroAleatorio.classList.contains("jogado2")
+  // ) {
+  //   quadroAleatorio = arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
+  // }
+
+  // Marca ponto || verifica o resultado
   let matriz2 = [
     ["div1", "div2", "div3"],
     ["div1", "div4", "div7"],
@@ -132,11 +134,11 @@ function site() {
     ["div4", "div5", "div6"],
     ["div7", "div8", "div9"],
   ];
-  for (let ind = 0; ind < matriz2.length; ind++) {
-    let linhas = matriz2[ind];
+  for (let i = 0; i < matriz2.length; i++) {
+    let linhas = matriz2[i];
     let result = true;
-    for (let indi = 0; indi < linhas.length; indi++) {
-      let combinaçoes = document.getElementById(linhas[indi]);
+    for (let i = 0; i < linhas.length; i++) {
+      let combinaçoes = document.getElementById(linhas[i]);
       if (!combinaçoes.classList.contains("jogado2")) {
         result = false;
         break;
@@ -158,23 +160,53 @@ function site() {
       return;
     }
   }
-  if (tipo !== "bola") {
-    let img = document.createElement("img");
-    img.src = "../imagens/Circle.png";
-    quadroAleatorio.appendChild(img);
-    quadroAleatorio.classList.add("jogado2");
-    img.style.display = "flex";
-    img.style.margin = "auto";
-    img.style.alignItems = "center";
-    img.style.justifyContent = "center";
-  } else {
-    let img = document.createElement("img");
-    img.src = "../imagens/Xis.png";
-    quadroAleatorio.appendChild(img);
-    quadroAleatorio.classList.add("jogado2");
-    img.style.display = "flex";
-    img.style.margin = "auto";
-    img.style.alignItems = "center";
-    img.style.justifyContent = "center";
+  // decide a jogada
+  let matriz3 = [
+    ["div1", "div2", "div3"],
+    ["div1", "div4", "div7"],
+    ["div1", "div5", "div9"],
+    ["div3", "div5", "div7"],
+    ["div2", "div5", "div8"],
+    ["div3", "div6", "div9"],
+    ["div4", "div5", "div6"],
+    ["div7", "div8", "div9"],
+  ];
+  for (let i = 0; i < matriz3.length; i++) {
+    let eDivs = matriz3[i];
+    let jogado = false;
+    for (let i = 0; i < eDivs.length; i++) {
+      let eDivsIds2 = document.getElementById(eDivs[i]);
+      if (eDivsIds2.classList.contains("jogado")) {
+        jogado = true;
+        break;
+      }
+      if (
+        !eDivsIds2.classList.contains("jogado") &&
+        !eDivsIds2.classList.contains("jogado2")
+      ) {
+        if (tipo !== "bola") {
+          let img = document.createElement("img");
+          img.src = "../imagens/Circle.png";
+          eDivsIds2.appendChild(img);
+          eDivsIds2.classList.add("jogado2");
+          img.style.display = "flex";
+          img.style.margin = "auto";
+          img.style.alignItems = "center";
+          img.style.justifyContent = "center";
+        } else {
+          let img = document.createElement("img");
+          img.src = "../imagens/Xis.png";
+          eDivsIds2.appendChild(img);
+          eDivsIds2.classList.add("jogado2");
+          img.style.display = "flex";
+          img.style.margin = "auto";
+          img.style.alignItems = "center";
+          img.style.justifyContent = "center";
+        }
+        return;
+        // resu = false;
+        // break;
+      }
+    }
   }
 }
