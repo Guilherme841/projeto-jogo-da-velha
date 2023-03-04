@@ -61,7 +61,7 @@ for (var bloco of blocos) {
     ];
     for (let i = 0; i < matriz.length; i++) {
       const divs = matriz[i];
-      let resultado = true;
+      var resultado = true;
       for (let i2 = 0; i2 < divs.length; i2++) {
         const divsId = document.getElementById(divs[i2]);
         if (!divsId.classList.contains("jogado")) {
@@ -121,6 +121,42 @@ function site() {
     quadroAleatorio.classList.contains("jogado2")
   ) {
     quadroAleatorio = arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
+  }
+  let matriz2 = [
+    ["div1", "div2", "div3"],
+    ["div1", "div4", "div7"],
+    ["div1", "div5", "div9"],
+    ["div3", "div5", "div7"],
+    ["div2", "div5", "div8"],
+    ["div3", "div6", "div9"],
+    ["div4", "div5", "div6"],
+    ["div7", "div8", "div9"],
+  ];
+  for (let ind = 0; ind < matriz2.length; ind++) {
+    let linhas = matriz2[ind];
+    let result = true;
+    for (let indi = 0; indi < linhas.length; indi++) {
+      let combinaçoes = document.getElementById(linhas[indi]);
+      if (!combinaçoes.classList.contains("jogado2")) {
+        result = false;
+        break;
+      }
+    }
+    if (result) {
+      if (tipo !== "xis") {
+        const placarx = document.getElementById("placarx");
+        let valorAtual = parseInt(placarx.textContent);
+        placarx.textContent = valorAtual + 1;
+        localStorage.setItem("placarx", valorAtual + 1);
+      } else {
+        const boardBola = document.getElementById("boardBola");
+        let valorAtualBall = parseInt(boardBola.textContent);
+        boardBola.textContent = valorAtualBall + 1;
+        localStorage.setItem("boardBola", valorAtualBall + 1);
+      }
+      location.reload();
+      return;
+    }
   }
   if (tipo !== "bola") {
     let img = document.createElement("img");
