@@ -24,6 +24,7 @@ main {
     padding-top: 40px;
     text-align: center;
     /* background-color: lightyellow; */
+    padding: 20px;
 }
 
 #placarx {
@@ -76,4 +77,23 @@ main {
     width: 90px;
     height: 90px;
     cursor: pointer;
+}
+
+#reset {
+    margin-top: 20px;
+    grid-column-start: 2;
+    outline: 0;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: rgba(0, 0, 0, 0.603);
+    color: rgba(255, 255, 255, 0.705);
+    border: 1px solid rgba(255, 255, 255, 0.603);
+}
+
+#reset:hover {
+    background-color: gray;
+    color: rgba(0, 0, 0, 0.664);
 }

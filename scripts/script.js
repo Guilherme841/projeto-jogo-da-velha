@@ -1,6 +1,7 @@
 const blocos = document.querySelectorAll(".blocos");
 const xis = document.getElementById("xispng");
 const bola = document.getElementById("bolapng");
+const resetar = document.getElementById("reset");
 
 var execução = false;
 var tipo = "";
@@ -44,45 +45,52 @@ for (var bloco of blocos) {
       return;
     }
     execução = true;
-    let jogadas = document.querySelectorAll(".jogado");
-    let arrJogadas = Array.from(jogadas);
-    if (arrJogadas.length === 4) {
+    // var jogadas = document.querySelectorAll(".jogado");
+    // var arrJogadas = Array.from(jogadas);
+    resetar.addEventListener("click", function () {
       location.reload();
-    }
-    let matriz = [
-      ["div1", "div2", "div3"],
-      ["div1", "div4", "div7"],
-      ["div1", "div5", "div9"],
-      ["div3", "div5", "div7"],
-      ["div2", "div5", "div8"],
-      ["div3", "div6", "div9"],
-      ["div4", "div5", "div6"],
-      ["div7", "div8", "div9"],
-    ];
-    for (let i = 0; i < matriz.length; i++) {
-      let divs = matriz[i];
-      let resultado = true;
-      for (let i = 0; i < divs.length; i++) {
-        let divsId = document.getElementById(divs[i]);
-        if (!divsId.classList.contains("jogado")) {
-          resultado = false;
-          break;
+    });
+    // setInterval(function () {
+    //   verificaResu()
+    // }, 1000);
+    function verificaResu() {
+      let matriz = [
+        ["div1", "div2", "div3"],
+        ["div1", "div4", "div7"],
+        ["div1", "div5", "div9"],
+        ["div3", "div5", "div7"],
+        ["div2", "div5", "div8"],
+        ["div3", "div6", "div9"],
+        ["div4", "div5", "div6"],
+        ["div7", "div8", "div9"],
+      ];
+      var verificaResultado = false;
+      for (let i = 0; i < matriz.length; i++) {
+        let divs = matriz[i];
+        let resultado = true;
+        for (let i = 0; i < divs.length; i++) {
+          let divsId = document.getElementById(divs[i]);
+          if (!divsId.classList.contains("jogado")) {
+            resultado = false;
+            break;
+          }
         }
-      }
-      if (resultado) {
-        if (tipo === "xis") {
-          const placarx = document.getElementById("placarx");
-          let valorAtual = parseInt(placarx.textContent);
-          placarx.textContent = valorAtual + 1;
-          localStorage.setItem("placarx", valorAtual + 1);
-        } else if (tipo === "bola") {
-          const boardBola = document.getElementById("boardBola");
-          let valorAtualBall = parseInt(boardBola.textContent);
-          boardBola.textContent = valorAtualBall + 1;
-          localStorage.setItem("boardBola", valorAtualBall + 1);
+        if (resultado) {
+          verificaResultado = true;
+          if (tipo === "xis") {
+            const placarx = document.getElementById("placarx");
+            let valorAtual = parseInt(placarx.textContent);
+            placarx.textContent = valorAtual + 1;
+            localStorage.setItem("placarx", valorAtual + 1);
+          } else if (tipo === "bola") {
+            const boardBola = document.getElementById("boardBola");
+            let valorAtualBall = parseInt(boardBola.textContent);
+            boardBola.textContent = valorAtualBall + 1;
+            localStorage.setItem("boardBola", valorAtualBall + 1);
+          }
+          location.reload();
+          return;
         }
-        location.reload();
-        return;
       }
     }
     if (tipo === "xis") {
@@ -105,14 +113,15 @@ for (var bloco of blocos) {
       img.style.justifyContent = "center";
     }
     site();
+    verificaResu();
   });
 }
 
 function site() {
   let jogadas2 = document.querySelectorAll(".jogado2");
-  if (jogadas2.length > 3) {
-    return;
-  }
+  // if (jogadas2.length > 3) {
+  //   return;
+  // }
   // let arrQuadros = Array.from(blocos);
   // let quadroAleatorio =
   //   arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
@@ -124,42 +133,47 @@ function site() {
   // }
 
   // Marca ponto || verifica o resultado
-  let matriz2 = [
-    ["div1", "div2", "div3"],
-    ["div1", "div4", "div7"],
-    ["div1", "div5", "div9"],
-    ["div3", "div5", "div7"],
-    ["div2", "div5", "div8"],
-    ["div3", "div6", "div9"],
-    ["div4", "div5", "div6"],
-    ["div7", "div8", "div9"],
-  ];
-  for (let i = 0; i < matriz2.length; i++) {
-    let linhas = matriz2[i];
-    let result = true;
-    for (let i = 0; i < linhas.length; i++) {
-      let combinaçoes = document.getElementById(linhas[i]);
-      if (!combinaçoes.classList.contains("jogado2")) {
-        result = false;
-        break;
+  function verificaResu2() {
+    let matriz2 = [
+      ["div1", "div2", "div3"],
+      ["div1", "div4", "div7"],
+      ["div1", "div5", "div9"],
+      ["div3", "div5", "div7"],
+      ["div2", "div5", "div8"],
+      ["div3", "div6", "div9"],
+      ["div4", "div5", "div6"],
+      ["div7", "div8", "div9"],
+    ];
+    for (let i = 0; i < matriz2.length; i++) {
+      let linhas = matriz2[i];
+      let result = true;
+      for (let i = 0; i < linhas.length; i++) {
+        let combinaçoes = document.getElementById(linhas[i]);
+        if (!combinaçoes.classList.contains("jogado2")) {
+          result = false;
+          break;
+        }
       }
-    }
-    if (result) {
-      if (tipo !== "xis") {
-        const placarx = document.getElementById("placarx");
-        let valorAtual = parseInt(placarx.textContent);
-        placarx.textContent = valorAtual + 1;
-        localStorage.setItem("placarx", valorAtual + 1);
-      } else {
-        const boardBola = document.getElementById("boardBola");
-        let valorAtualBall = parseInt(boardBola.textContent);
-        boardBola.textContent = valorAtualBall + 1;
-        localStorage.setItem("boardBola", valorAtualBall + 1);
+      if (result) {
+        if (tipo !== "xis") {
+          const placarx = document.getElementById("placarx");
+          let valorAtual = parseInt(placarx.textContent);
+          placarx.textContent = valorAtual + 1;
+          localStorage.setItem("placarx", valorAtual + 1);
+        } else {
+          const boardBola = document.getElementById("boardBola");
+          let valorAtualBall = parseInt(boardBola.textContent);
+          boardBola.textContent = valorAtualBall + 1;
+          localStorage.setItem("boardBola", valorAtualBall + 1);
+        }
+        location.reload();
+        return;
       }
-      location.reload();
-      return;
     }
   }
+  setInterval(() => {
+    verificaResu2()
+  }, 1000);
   // decide a jogada
   let matriz3 = [
     ["div1", "div2", "div3"],
