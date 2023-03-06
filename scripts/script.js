@@ -90,7 +90,7 @@ for (var bloco of blocos) {
     }
     if (tipo === "xis") {
       let img = document.createElement("img");
-      img.src = "../imagens/Xis.png";
+      img.src = "./imagens/Xis.png";
       this.appendChild(img);
       this.classList.add("jogado");
       img.style.display = "flex";
@@ -99,7 +99,7 @@ for (var bloco of blocos) {
       img.style.justifyContent = "center";
     } else if (tipo === "bola") {
       let img = document.createElement("img");
-      img.src = "../imagens/Circle.png";
+      img.src = "./imagens/Circle.png";
       this.appendChild(img);
       this.classList.add("jogado");
       img.style.display = "flex";
@@ -179,7 +179,7 @@ function site() {
       ) {
         if (tipo !== "bola") {
           let img = document.createElement("img");
-          img.src = "../imagens/Circle.png";
+          img.src = "./imagens/Circle.png";
           eDivsIds2.appendChild(img);
           eDivsIds2.classList.add("jogado2");
           img.style.display = "flex";
@@ -188,7 +188,7 @@ function site() {
           img.style.justifyContent = "center";
         } else {
           let img = document.createElement("img");
-          img.src = "../imagens/Xis.png";
+          img.src = "./imagens/Xis.png";
           eDivsIds2.appendChild(img);
           eDivsIds2.classList.add("jogado2");
           img.style.display = "flex";
