@@ -7,12 +7,15 @@ var execução = false;
 var tipo = "";
 
 let pointx = localStorage.getItem("placarx");
-placarx.textContent = pointx;
+if (!isNaN(pointx)) {
+  placarx.textContent = parseFloat(pointx);
+}
 
 let plaBall = localStorage.getItem("boardBola");
 if (!isNaN(plaBall)) {
   boardBola.textContent = parseInt(plaBall);
 }
+
 
 xis.addEventListener("click", function () {
   if (execução) {
@@ -147,7 +150,7 @@ function site() {
     }
   }
   setInterval(() => {
-    verificaResu2()
+    verificaResu2();
   }, 1000);
   let matriz3 = [
     ["div1", "div2", "div3"],
