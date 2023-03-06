@@ -7,13 +7,15 @@ var execução = false;
 var tipo = "";
 
 let pointx = localStorage.getItem("placarx");
+let pointxNu = Number(pointx);
 if (!isNaN(pointx)) {
-  placarx.textContent = parseFloat(pointx);
-}
+  placarx.textContent = pointxNu
+} 
 
 let plaBall = localStorage.getItem("boardBola");
+let plaBallNu = Number(plaBall);
 if (!isNaN(plaBall)) {
-  boardBola.textContent = parseInt(plaBall);
+  boardBola.textContent = plaBallNu;
 }
 
 
