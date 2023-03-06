@@ -30,9 +30,6 @@ bola.addEventListener("click", function () {
 
 for (var bloco of blocos) {
   bloco.addEventListener("click", function () {
-    // if (execução) {
-    //     return;
-    //   }
     if (this.classList.contains("jogado")) {
       execução = false;
       return;
@@ -45,14 +42,9 @@ for (var bloco of blocos) {
       return;
     }
     execução = true;
-    // var jogadas = document.querySelectorAll(".jogado");
-    // var arrJogadas = Array.from(jogadas);
     resetar.addEventListener("click", function () {
       location.reload();
     });
-    // setInterval(function () {
-    //   verificaResu()
-    // }, 1000);
     function verificaResu() {
       let matriz = [
         ["div1", "div2", "div3"],
@@ -118,21 +110,6 @@ for (var bloco of blocos) {
 }
 
 function site() {
-  let jogadas2 = document.querySelectorAll(".jogado2");
-  // if (jogadas2.length > 3) {
-  //   return;
-  // }
-  // let arrQuadros = Array.from(blocos);
-  // let quadroAleatorio =
-  //   arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
-  // while (
-  //   quadroAleatorio.classList.contains("jogado") ||
-  //   quadroAleatorio.classList.contains("jogado2")
-  // ) {
-  //   quadroAleatorio = arrQuadros[Math.floor(Math.random() * arrQuadros.length)];
-  // }
-
-  // Marca ponto || verifica o resultado
   function verificaResu2() {
     let matriz2 = [
       ["div1", "div2", "div3"],
@@ -174,7 +151,6 @@ function site() {
   setInterval(() => {
     verificaResu2()
   }, 1000);
-  // decide a jogada
   let matriz3 = [
     ["div1", "div2", "div3"],
     ["div1", "div4", "div7"],
@@ -218,8 +194,6 @@ function site() {
           img.style.justifyContent = "center";
         }
         return;
-        // resu = false;
-        // break;
       }
     }
   }
