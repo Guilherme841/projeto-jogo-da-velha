@@ -56,7 +56,6 @@ for (var bloco of blocos) {
         ["div4", "div5", "div6"],
         ["div7", "div8", "div9"],
       ];
-      var verificaResultado = false;
       for (let i = 0; i < matriz.length; i++) {
         let divs = matriz[i];
         let resultado = true;
@@ -68,7 +67,6 @@ for (var bloco of blocos) {
           }
         }
         if (resultado) {
-          verificaResultado = true;
           if (tipo === "xis") {
             const placarx = document.getElementById("placarx");
             let valorAtual = parseInt(placarx.textContent);
@@ -163,7 +161,7 @@ function site() {
   ];
   for (let i = 0; i < matriz3.length; i++) {
     let eDivs = matriz3[i];
-    let jogado = false;
+    var jogado = false;
     for (let i = 0; i < eDivs.length; i++) {
       let eDivsIds2 = document.getElementById(eDivs[i]);
       if (eDivsIds2.classList.contains("jogado")) {
