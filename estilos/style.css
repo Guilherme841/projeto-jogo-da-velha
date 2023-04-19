@@ -65,10 +65,12 @@ main {
 
 #xispng {
     cursor: pointer;
+    width: 75px;
 }
 
 #bolapng {
     cursor: pointer;
+    width: 60px;
 }
 
 .blocos {
