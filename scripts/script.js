@@ -1,7 +1,6 @@
 const blocos = document.querySelectorAll(".blocos");
 const xis = document.getElementById("xispng");
 const bola = document.getElementById("bolapng");
-const resetar = document.getElementById("reset");
 
 var execução = false;
 var tipo = "";
@@ -17,7 +16,6 @@ let plaBallNu = Number(plaBall);
 if (!isNaN(plaBall)) {
   boardBola.textContent = plaBallNu;
 }
-
 
 xis.addEventListener("click", function () {
   if (execução) {
@@ -47,9 +45,6 @@ for (var bloco of blocos) {
       return;
     }
     execução = true;
-    resetar.addEventListener("click", function () {
-      location.reload();
-    });
     function verificaResu() {
       let matriz = [
         ["div1", "div2", "div3"],
